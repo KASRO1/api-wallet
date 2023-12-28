@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="71" height="65" viewBox="0 0 71 65">
+    <defs>
+        <radialGradient id="a" cx="48.886%" cy="48.028%" r="521.556%" fx="48.886%" fy="48.028%" gradientTransform="matrix(.09547 0 0 1 .442 0)">
+            <stop offset="0%" stop-color="#006BB1"/>
+            <stop offset="100%" stop-color="#0068A8" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="b" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#35CBFD"/>
+            <stop offset="100%" stop-color="#189BFA"/>
+        </linearGradient>
+        <linearGradient id="c" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#35CBFD"/>
+            <stop offset="100%" stop-color="#189BFA"/>
+        </linearGradient>
+        <linearGradient id="d" x1="50%" x2="50%" y1=".23%" y2="100%">
+            <stop offset="0%" stop-color="#FBDA35"/>
+            <stop offset="100%" stop-color="#F7BA35"/>
+        </linearGradient>
+        <linearGradient id="e" x1="66.798%" x2="46.068%" y1="91.167%" y2="64.286%">
+            <stop offset="0%" stop-color="#FBDA35"/>
+            <stop offset="100%" stop-color="#F7BA35"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#1A2C46" d="M23.248 11.29C35.71-1.03 56.82 5.73 59.94 23.04 66.187 23.955 71 29.397 71 35.953 71 43.147 65.202 49 58.075 49H18.927C8.49 49 0 40.43 0 29.894 0 17.655 11.332 8.477 23.248 11.289z"/>
+        <ellipse cx="41.339" cy="62.56" fill="url(#a)" fill-rule="nonzero" opacity=".2" rx="16.339" ry="1.56" style="mix-blend-mode:multiply"/>
+        <g fill-rule="nonzero">
+            <path fill="url(#b)" d="M44.402 15.926l1.582-8.701L44.402 0H26.345l7.91 8.016-7.91 7.91z" transform="translate(9)"/>
+            <path fill="#2699EA" d="M53.402 0h3.164v28.582h-3.164z"/>
+            <path fill="url(#c)" d="M45.984 0h1.582v28.582h-1.582z" transform="translate(9)"/>
+            <path fill="url(#d)" d="M38.074 25.418v6.328H25.418v6.328H12.762v6.328H0V54h54V25.418z" transform="translate(9)"/>
+            <path fill="url(#e)" d="M45.984 25.418H54V54h-8.016z" transform="translate(9)"/>
+        </g>
+    </g>
+</svg>

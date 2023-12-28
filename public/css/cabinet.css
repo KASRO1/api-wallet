@@ -1,0 +1,167 @@
+.news-photo {
+    height: 5rem
+}
+
+@media screen and (min-width: 576px) {
+    .news-photo {
+        height: 13rem
+    }
+}
+
+.news-card:not(.sticky) {
+    border-bottom: .15rem solid #f85446
+}
+
+@media screen and (min-width: 992px) {
+    .news-card:not(.sticky):focus .news-photo, .news-card:not(.sticky):hover .news-photo {
+        transform: scale(1.1) translateY(-1rem)
+    }
+}
+
+.news-card:not(.sticky):focus .news-content, .news-card:not(.sticky):focus .news-date, .news-card:not(.sticky):focus .news-title, .news-card:not(.sticky):hover .news-content, .news-card:not(.sticky):hover .news-date, .news-card:not(.sticky):hover .news-title {
+    transform: translateY(-1rem)
+}
+
+.news-date {
+    transition-delay: 25ms
+}
+
+.news-title {
+    transition-delay: .05s
+}
+
+.news-content {
+    transition-delay: .1s
+}
+
+.news-platinum {
+    color: #dfa511
+}
+
+.news-card-mini {
+    background-color: #f5f5f8;
+    color: #16171c;
+    transition: background-color .15s;
+}
+
+.news-card-mini:focus, .news-card-mini:hover {
+    background-color: #ededf1
+}
+
+@media screen and (min-width: 768px) {
+    .news-card-horizontal {
+        border-bottom: 0 !important
+    }
+
+    .news-card-horizontal .news-content {
+        border-bottom: .15rem solid #f85446;
+        padding: 8px 0 16px
+    }
+}
+
+.news-card-horizontal .news-photo {
+    min-width: 5rem;
+    height: 30vh
+}
+
+@media screen and (min-width: 768px) {
+    .news-card-horizontal .news-photo {
+        min-width: 13rem;
+        height: auto
+    }
+}
+
+.account-sidebar {
+    width: 20rem;
+    transition: width .25s
+}
+
+.account-sidebar.account-sidebar--short {
+    width: 5.25rem
+}
+
+.link {
+    transition: background-color .15s
+}
+
+.link:not(.link--short) {
+    padding: .75rem .75rem .75rem 0
+}
+
+.link.link--short {
+    padding: .75rem 0
+}
+
+.link:not(.link--active) {
+    color: #fff
+}
+
+.link:not(.link--active):focus, .link:not(.link--active):hover {
+    background-color: hsla(0, 0%, 100%, .05)
+}
+
+.link.link--telegram {
+    color: #08c
+}
+
+.link.link--active {
+    color: #f85446;
+    background-color: rgba(248, 84, 70, .2)
+}
+
+.flag {
+    box-shadow: 0 0 0 .1rem #16171c
+}
+
+.toggle-menu-btn path, .toggle-menu-btn svg {
+    transition: fill .1s
+}
+
+.toggle-menu-btn:focus path, .toggle-menu-btn:focus svg, .toggle-menu-btn:hover path, .toggle-menu-btn:hover svg {
+    fill: #f85446
+}
+
+@media screen and (min-width: 768px) {
+    .balance-vertical-divider:not(:last-child):after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: .1rem;
+        height: 80%;
+        margin: auto;
+        background: linear-gradient(180deg, rgba(218, 220, 226, 0), #dadce2 50%, rgba(218, 220, 226, 0))
+    }
+}
+
+.card-turnover {
+    background-color: hsla(0, 0%, 100%, .2)
+}
+
+.padding-data-row {
+    padding: .6rem 1rem
+}
+
+.offer {
+    transition: filter .15s
+}
+
+.offer, .offer:focus, .offer:hover {
+    color: #fff
+}
+
+.offer:focus, .offer:hover {
+    filter: brightness(1.25)
+}
+
+.recent-registrations {
+    max-height: 31rem
+}
+
+.tooltip {
+    width: 15rem;
+    left: 50%;
+    margin-left: -7.5rem;
+    white-space: normal
+}

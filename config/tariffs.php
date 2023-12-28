@@ -1,0 +1,256 @@
+<?php
+
+return [
+    0 => [
+        'title' => 'Mini',
+        'from' => [
+            'rub' => (2500 * 100000),
+            'usd' => (30 * 100000),
+            'eur' => (1 * 100000),
+            \App\Account::CURRENCY_BTC_ONE => 250,
+            \App\Account::CURRENCY_BTC_TWO => 4000,
+        ],
+        'to' => [
+            'rub' => 60000 * 100000,
+            'usd' => 500 * 100000,
+            'eur' => 5 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 1300,
+            \App\Account::CURRENCY_BTC_TWO => 20000,
+        ],
+        'percent' => 0.9,
+    ],
+    1 => [
+        'title' => 'Start',
+        'from' => [
+            'rub' => 60000 * 100000,
+            'usd' => 500 * 100000,
+            'eur' => 5 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 1300,
+            \App\Account::CURRENCY_BTC_TWO => 20000,
+        ],
+        'to' => [
+            'rub' => 180000 * 100000,
+            'usd' => 1500 * 100000,
+            'eur' => 15 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 3800,
+            \App\Account::CURRENCY_BTC_TWO => 60000,
+        ],
+        'percent' => 1.1,
+    ],
+    2 => [
+        'title' => 'Basic',
+        'from' => [
+            'rub' => 180000 * 100000,
+            'usd' => 1500 * 100000,
+            'eur' => 15 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 3800,
+            \App\Account::CURRENCY_BTC_TWO => 60000,
+        ],
+        'to' => [
+            'rub' => 600000 * 100000,
+            'usd' => 5000 * 100000,
+            'eur' => 50 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 12500,
+            \App\Account::CURRENCY_BTC_TWO => 180000,
+        ],
+        'percent' => 1.35,
+    ],
+    3 => [
+        'title' => 'Normal',
+        'from' => [
+            'rub' => 600000 * 100000,
+            'usd' => 5000 * 100000,
+            'eur' => 50 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 12500,
+            \App\Account::CURRENCY_BTC_TWO => 180000,
+        ],
+        'to' => [
+            'rub' => 1200000 * 100000,
+            'usd' => 10000 * 100000,
+            'eur' => 100 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 25000,
+            \App\Account::CURRENCY_BTC_TWO => 360000,
+        ],
+        'percent' => 1.5,
+    ],
+
+    4 => [
+        'title' => 'Expert',
+        'from' => [
+            'rub' => 1200000 * 100000,
+            'usd' => 10000 * 100000,
+            'eur' => 100 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 25000,
+            \App\Account::CURRENCY_BTC_TWO => 360000,
+        ],
+        'to' => [
+            'rub' => 6200000 * 100000,
+            'usd' => 50000 * 100000,
+            'eur' => 500 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 125000,
+            \App\Account::CURRENCY_BTC_TWO => 1800000,
+        ],
+        'percent' => 1.7,
+    ],
+    5 => [
+        'title' => 'VIP',
+        'from' => [
+            'rub' => 6200000 * 100000,
+            'usd' => 50000 * 100000,
+            'eur' => 500 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 125000,
+            \App\Account::CURRENCY_BTC_TWO => 1800000,
+        ],
+        'to' => [
+            'rub' => 12000000 * 100000,
+            'usd' => 100000 * 100000,
+            'eur' => 1000 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 252000,
+            \App\Account::CURRENCY_BTC_TWO => 3600000,
+        ],
+        'percent' => 1.9,
+    ],
+    "apy" => [
+        'title' => 'APY trading bot',
+        'from' => [
+            'rub' => 6200000 * 100000,
+            'usd' => 50000 * 100000,
+            'eur' => 500 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 125000,
+            \App\Account::CURRENCY_BTC_TWO => 1800000,
+            \App\Account::CURRENCY_BTC => 1000000,
+        ],
+        'to' => [
+            'rub' => 12000000 * 100000,
+            'usd' => 100000 * 100000,
+            'eur' => 1000 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 252000,
+            \App\Account::CURRENCY_BTC_TWO => 3600000,
+        ],
+        'percent' => [
+            15 => 0.2,
+            30 => 0.3,
+            60 => 0.5,
+            90 => 0.6,
+            120 => 0.7,
+        ],
+    ],
+    "apy-staking" => [
+        'title' => 'APY staking',
+        'from' => [
+            'rub' => 6200000 * 100000,
+            'usd' => 50000 * 100000,
+            'eur' => 500 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 125000,
+            \App\Account::CURRENCY_BTC_TWO => 1800000,
+        ],
+        'to' => [
+            'rub' => 12000000 * 100000,
+            'usd' => 100000 * 100000,
+            'eur' => 1000 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 252000,
+            \App\Account::CURRENCY_BTC_TWO => 3600000,
+        ],
+        'percent' => [
+            30 => 0.35,
+            60 => 0.6,
+            120 => 0.75,
+            240 => 0.9,
+        ],
+    ],
+    "liquidity" => [
+        'title' => 'Liquidity pools',
+        'from' => [
+            'rub' => 6200000 * 100000,
+            'usd' => 50000 * 100000,
+            'eur' => 500 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 125000,
+            \App\Account::CURRENCY_BTC_TWO => 1800000,
+        ],
+        'to' => [
+            'rub' => 12000000 * 100000,
+            'usd' => 100000 * 100000,
+            'eur' => 1000 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 252000,
+            \App\Account::CURRENCY_BTC_TWO => 3600000,
+        ],
+        'percent' => [
+            15 => 0.3,
+            30 => 0.4,
+            60 => 0.6,
+            90 => 0.75,
+            120 => 0.9,
+        ],
+    ],
+    "defi-staking" => [
+        'title' => 'DeFi стейкинг',
+        'from' => [
+            'rub' => 6200000 * 100000,
+            'usd' => 50000 * 100000,
+            'eur' => 500 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 125000,
+            \App\Account::CURRENCY_BTC_TWO => 1800000,
+        ],
+        'to' => [
+            'rub' => 12000000 * 100000,
+            'usd' => 100000 * 100000,
+            'eur' => 1000 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 252000,
+            \App\Account::CURRENCY_BTC_TWO => 3600000,
+        ],
+        'percent' => [
+            15 => 0.3,
+            30 => 0.4,
+            60 => 0.5,
+            90 => 0.6,
+            120 => 0.8
+        ],
+    ],
+    "classic-stacking" => [
+        'title' => 'Classic Stacking',
+        'from' => [
+            'rub' => 6200000 * 100000,
+            'usd' => 50000 * 100000,
+            'eur' => 500 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 125000,
+            \App\Account::CURRENCY_BTC_TWO => 1800000,
+        ],
+        'to' => [
+            'rub' => 12000000 * 100000,
+            'usd' => 100000 * 100000,
+            'eur' => 1000 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 252000,
+            \App\Account::CURRENCY_BTC_TWO => 3600000,
+        ],
+        'percent' => [
+            7 => 0.15,
+            15 => 0.25,
+            30 => 0.35,
+            60 => 0.55,
+            120 => 0.75
+        ],
+    ],
+    "ido" => [
+        'title' => 'IDO investments',
+        'from' => [
+            'rub' => 6200000 * 100000,
+            'usd' => 50000 * 100000,
+            'eur' => 500 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 125000,
+            \App\Account::CURRENCY_BTC_TWO => 1800000,
+        ],
+        'to' => [
+            'rub' => 12000000 * 100000,
+            'usd' => 100000 * 100000,
+            'eur' => 1000 * 100000,
+            \App\Account::CURRENCY_BTC_ONE => 252000,
+            \App\Account::CURRENCY_BTC_TWO => 3600000,
+        ],
+        'percent' => [
+            7 => 0.1,
+            14 => 0.1,
+            21 => 0.1,
+            28 => 0.1,
+        ],
+    ]
+];
