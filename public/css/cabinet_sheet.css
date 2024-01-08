@@ -12,6 +12,41 @@
     padding-top: 15px;
     font-weight: bold;
 }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: transparent;
+    box-shadow: none;
+    overflow-y: hidden;
+    border-right: orange;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .gradient-list li:first-child:before{
     color: #a396e5;
@@ -343,9 +378,13 @@ Wallets
     border-radius: 20px;
     -webkit-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.3);
     box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.3);
-    padding: 70px 50px;
-    margin: 40px 0 60px;
+    padding: 10px 30px;
+    margin: 20px 0 20px;
     transition: .15s;
+}
+.wallet-img{
+    width: 50px;
+    height: 50px;
 }
 .wallet-item:hover{
     box-shadow: 0px 0px 15px 9px rgba(0,0,0,0.3);
@@ -353,9 +392,9 @@ Wallets
 }
 .wallet-item__info-box{
     background-color: #eff2fd;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
     margin-top: 10px;
     display: flex;
     align-items: center;
@@ -375,17 +414,15 @@ Wallets
 .wallet-item__amount{
     font-size: 2rem;
     color: #79a4e4;
-    margin: 20px 0 60px;
     font-weight: bold;
 }
 .wallet-item__btn{
     background: linear-gradient(142deg, rgba(48,61,109,1) 0%, rgba(26,33,53,1) 100%);
     color: #ffffff;
     border-radius: 10px;
-    padding: 15px 30px 10px;
-    font-size: 1.2rem;
+    padding: 10px 10px 10px;
+    font-size: 1rem;
     font-weight: bold;
-    margin-top: 10px;
     display: inline-block;
     transition: .1s;
 }
@@ -395,7 +432,6 @@ Wallets
 }
 
 .wallet-item__btn__add{
-    margin-left: auto;
     background: linear-gradient(142deg, rgb(22, 107, 0) 0%, rgb(27, 140, 0) 100%);
 }
 

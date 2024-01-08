@@ -5943,16 +5943,7 @@ input[type="number"] {
     -ms-transform: translate(-50%, -50%) rotate(-90deg);
     transform: translate(-50%, -50%) rotate(-90deg);
 }
-.modal {
-    display: none;
-    width: 100%;
-    border-radius: 1.5rem;
-    -webkit-box-shadow: 0 0 86.4px 3.6px rgba(0, 1, 1, 0.09);
-    box-shadow: 0 0 86.4px 3.6px rgba(0, 1, 1, 0.09);
-    background: #fff;
-    color: #000;
-    padding: 0;
-}
+
 .modal__title {
     margin-bottom: 0;
 }

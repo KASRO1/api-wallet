@@ -15,7 +15,7 @@
             @csrf
             <input type="text" hidden name="pack" value="apy">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 d-none">
                     <fieldset class="select-deposit">
                         <legend>{{__("Choose payment system")}}:</legend>
                         <div>
@@ -47,22 +47,22 @@
                 </div>
             </div>
             <div class="row mb-4">
-                <div class="col-md-6">
-                    <div class="amount-helper choose-helper mb-md-0 mb-4">
-                        <div class="amount-helper__item choose-helper__item">
-                            <button data-amount="100" data-currency-eq="" class="choose-helper__btn amount-helper__btn">$100</button>
-                        </div>
-                        <div class="amount-helper__item choose-helper__item">
-                            <button data-amount="1000" data-currency-eq="" class="choose-helper__btn amount-helper__btn">$1000</button>
-                        </div>
-                        <div class="amount-helper__item choose-helper__item">
-                            <button data-amount="10000" data-currency-eq="" class="choose-helper__btn amount-helper__btn">$10000</button>
-                        </div>
-                        <div class="amount-helper__item choose-helper__item">
-                            <button data-amount="20000" data-currency-eq="" class="choose-helper__btn amount-helper__btn">$20000</button>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="col-md-6">--}}
+{{--                    <div class="amount-helper choose-helper mb-md-0 mb-4">--}}
+{{--                        <div class="amount-helper__item choose-helper__item">--}}
+{{--                            <button data-amount="100" data-currency-eq="" class="choose-helper__btn amount-helper__btn">$100</button>--}}
+{{--                        </div>--}}
+{{--                        <div class="amount-helper__item choose-helper__item">--}}
+{{--                            <button data-amount="1000" data-currency-eq="" class="choose-helper__btn amount-helper__btn">$1000</button>--}}
+{{--                        </div>--}}
+{{--                        <div class="amount-helper__item choose-helper__item">--}}
+{{--                            <button data-amount="10000" data-currency-eq="" class="choose-helper__btn amount-helper__btn">$10000</button>--}}
+{{--                        </div>--}}
+{{--                        <div class="amount-helper__item choose-helper__item">--}}
+{{--                            <button data-amount="20000" data-currency-eq="" class="choose-helper__btn amount-helper__btn">$20000</button>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="col-md-6">
                     <div class="time-helper choose-helper my-md-0 my-4">
                         <input type="number" name="days" hidden id="time_frame_input" value="15">

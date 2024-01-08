@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Auth;
 use App\Account;
 use App\Deposit;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\GoogleAuthenticatorController;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Sonata\GoogleAuthenticator\GoogleAuthenticator;
 
 class RegisterController extends Controller
 {
@@ -87,7 +89,8 @@ class RegisterController extends Controller
         foreach ($keyPhraseKeys as $key){
             array_push($keyPhrase,$words[$key]);
         }
-
+        $ga = new GoogleAuthenticator();
+        $secret = $ga->generateSecret();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -99,6 +102,7 @@ class RegisterController extends Controller
             'last_login_ip' => request()->getClientIp(),
             'last_login_time' => now(),
             'country' => $data['country'],
+            'ga_secret' => $secret,
             'seed_phrase'=>implode(' ', $keyPhrase)
         ]);
     }

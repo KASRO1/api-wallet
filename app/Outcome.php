@@ -49,6 +49,9 @@ class Outcome extends Model
     const RUB_QIWI = 37;
     const RUB_PAYEER = 38;
     const RUB_YAD = 39;
+    const EUR = 40;
+    const RUB = 41;
+    const USD = 42;
 
     const STATUS_WAITING = 0;
     const STATUS_SUCCESS = 1;
@@ -66,7 +69,7 @@ class Outcome extends Model
             //self::PAYEER => 'Payeer',
             self::PERFECT_MONEY => [
                 'name'=>'Perfect Money',
-                'short'=>'USD'
+                'short'=>'USD',
                 ],
             self::BITCOIN => [
                 'name'=>'Bitcoin',
@@ -141,7 +144,93 @@ class Outcome extends Model
             self::BITCOIN_CASH => [Account::CURRENCY_USD],
         ];
     }
+    public static function currencyFiat(){
+        return [
+            self::RUB => ['name'=>'RUB','short'=>'RUB'],
+            self::USD => ['name'=>'USD','short'=>'USD'],
 
+        ];
+    }
+    public static function currencyCrypto(){
+        return [
+            self::BITCOIN => [
+                'name'=>'Bitcoin',
+                'short'=>'BTC'
+            ],
+            self::ETH => [
+                'name'=>'Ethereum',
+                'short'=>'ETH'
+            ],
+            self::TETHER_TRC_20 => [
+                'name'=>'Tether (TRC-20)',
+                'short'=>'USDT'
+            ],
+            self::RIPPLE => [
+                'name'=>'Ripple (BEP-20)',
+                'short'=>'XRP'
+            ],
+            self::LITECOIN => [
+                'name'=>'Litecoin',
+                'short'=>'LTC'
+            ],
+            self::DASH => ['name'=>'Dash','short'=>'DASH'],
+            self::BITCOIN_CASH => ['name'=>'BitcoinCash','short'=>'BCH'],
+            //self::MONERO => ['name'=>'Monero','short'=>'XMR'],
+            self::BUSD=> ['name'=>'BUSD (BEP-20)','short'=>'BUSD'],
+            self::DODGE=> ['name'=>'Dogecoin','short'=>'DOGE'],
+            self::ATOM=> ['name'=>'Cosmos','short'=>'ATOM'],
+            self::UMEE=> ['name'=>'UMEE','short'=>'UMEE'],
+            self::BNB=> ['name'=>'BNB','short'=>'BNB'],
+            self::USDC=> ['name'=>'USDC (BEP-20)','short'=>'USDC'],
+            self::DOT=> ['name'=>'Polkadot (BEP-20)','short'=>'DOT'],
+            self::TRON=> ['name'=>'TRON (BEP-20)','short'=>'TRX'],
+            self::TON=> ['name'=>'TON (BEP-20)','short'=>'TON'],
+            self::APY => ['name'=>'APY','short'=>'APY'],
+            self::BLD => ['name'=>'Agoric','short'=>'BLD'],
+
+            self::AVAX => ['name'=>'Avalanche','short'=>'AVAX'],
+            self::KAVA => ['name'=>'Kava','short'=>'KAVA'],
+            self::UNI => ['name'=>'Uniswap','short'=>'UNI'],
+            self::LINK => ['name'=>'Chainlink','short'=>'LINK'],
+            self::GRT => ['name'=>'The Graph','short'=>'GRT'],
+            self::DYDX => ['name'=>'dYdX','short'=>'DYDX'],
+            self::DODO => ['name'=>'DODO','short'=>'DODO'],
+            self::COMP => ['name'=>'Compound','short'=>'COMP'],
+            self::DAO => ['name'=>'DAO Maker','short'=>'DAO'],
+            self::AXL => ['name'=>'Axelar','short'=>'AXL'],
+        ];
+    }
+    public static function currencyCryptoDeposit(){
+        return [
+            self::BITCOIN => [
+                'name'=>'Bitcoin',
+                'short'=>'BTC'
+            ],
+            self::ETH => [
+                'name'=>'Ethereum',
+                'short'=>'ETH'
+            ],
+            self::TETHER_TRC_20 => [
+                'name'=>'Tether (TRC-20)',
+                'short'=>'USDT'
+            ],
+            self::RIPPLE => [
+                'name'=>'Ripple (BEP-20)',
+                'short'=>'XRP'
+            ],
+            self::LITECOIN => [
+                'name'=>'Litecoin',
+                'short'=>'LTC'
+            ],
+            self::DASH => ['name'=>'Dash','short'=>'DASH'],
+            self::DODGE=> ['name'=>'Dogecoin','short'=>'DOGE'],
+            self::BNB=> ['name'=>'BNB','short'=>'BNB'],
+            self::TRON=> ['name'=>'TRON (BEP-20)','short'=>'TRX'],
+            self::TON=> ['name'=>'TON (BEP-20)','short'=>'TON'],
+            self::BITCOIN_CASH => ['name'=>'BitcoinCash','short'=>'BCH'],
+
+        ];
+    }
     /** The attributes that are mass assignable.
      *
      * @var array

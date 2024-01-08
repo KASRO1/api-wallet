@@ -182,7 +182,7 @@ class DepositController extends Controller
 
             // deduct commission in APY token
             $commissionAccount = $accounts->where('currency', Account::CURRENCY_APY)->first();
-            $commission = ((float) env('COMMISSION')) * 100000;
+            $commission = 0;
 
             if ($commissionAccount['balance'] < $commission) {
                 return back()->withErrors(['balance' => 'APY token is not enough for commission.']);
@@ -218,7 +218,7 @@ class DepositController extends Controller
 
         // deduct commission in APY token
         $commissionAccount = $accounts->where('currency', Account::CURRENCY_APY)->first();
-        $commission = ((float) env('COMMISSION')) * 100000;
+        $commission = 0;
 
         if ($commissionAccount['balance'] < $commission) {
             return back()->withErrors(['balance' => 'APY token is not enough for commission.']);

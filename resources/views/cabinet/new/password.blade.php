@@ -218,7 +218,7 @@
                                                         <path data-v-2eb02792="" fill-rule="evenodd" clip-rule="evenodd" d="M9 0L.783 1.826A1 1 0 000 2.802v9.988a6 6 0 002.672 4.991L9 22l6.328-4.219A6 6 0 0018 12.789V2.802a1 1 0 00-.783-.976L9 0zM8 5v6h2V5H8zm0 8v2h2v-2H8z" fill="#fff"></path>
                                                     </svg>
                                                 </div>
-                                                @if(auth()->user()->ga_secret)
+                                                @if(auth()->user()->is2FA)
                                                 <div data-v-2eb02792="" class="flex items-center justify-between padding-x-3 padding-y-2 flex-grow bg-litest-gray">
                                                     <div data-v-2eb02792="" class="flex-grow text-tight">
                                                         <strong data-v-2eb02792=""> {{__("Two-Factor Authentication")}} </strong>
@@ -244,14 +244,14 @@
                                                 </div>
                                                 @endif
                                             </div>
-                                            @if(! auth()->user()->ga_secret)
+                                            @if(! auth()->user()->is2FA)
                                             <div data-v-2eb02792="" class="flex margin-y-3">
                                                 <img data-v-2eb02792="" src="{{ $qr }}" alt="SHB2YO4XO54KRIDM">
                                             </div>
                                             @endif
                                             <ul class="errors grid-column-12 grid-column-6--xl grid-column-start-4--xl margin-bottom-2">
                                                 @if(session()->has('ga_error'))
-                                                <li>Одноразовый код введен неверно, попробуйте другой.</li>
+                                                <li class="text-danger">Одноразовый код введен неверно, попробуйте другой.</li>
                                                 @endif
                                             </ul>
                                             <div data-v-2eb02792="" class="grid-column-12">
@@ -276,7 +276,7 @@
                                                         <svg data-v-2eb02792="" data-v-141d1a81="" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="height-1 fill-white margin-right-2">
                                                             <path data-v-2eb02792="" data-v-141d1a81="" d="M1 0h14l2.707 2.707a1 1 0 01.293.707V17a1 1 0 01-1 1H1a1 1 0 01-1-1V1a1 1 0 011-1zm3 1v5h9V1H4zM3 9v7h12V9H3zm7-7h2v3h-2V2z" fill="#fff"></path>
                                                         </svg>
-                                                        @if(! auth()->user()->ga_secret) {{__("Activate")}} @else {{__("Deactivate")}} @endif
+                                                        @if(! auth()->user()->is2FA) {{__("Activate")}} @else {{__("Deactivate")}} @endif
                                                     </span>
                                                 </button>
                                             </div>

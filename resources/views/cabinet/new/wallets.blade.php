@@ -7,46 +7,47 @@
 <section id="wallets">
     <div class="container">
         <div class="row section__heading">
-            <div class="col-md-7 col-12">
+            <div class="col-md-7 d-flex align-items-center gap-3 col-12">
                 <p class="py-4">{{__("My wallets")}}</p>
+                <div class="d-flex gap-2">
+                    <a href="{{route("cabinet.wallet")}}" class="btn btn-primary" style="height: 30px; padding: 0 10px;">Криптовалюта</a>
+                    <a  href="{{route("cabinet.wallet.fiat")}}" class="btn btn-primary" style="height: 30px; padding: 0 10px;">Фиат</a>
+                </div>
             </div>
             <div class="col-md-5 col-12">
                 <p class="py-4">{{__("Balance")}}: <span class="wallet-item__amount">{{number_format($total_balance / 100000, 2)}} USD</span></p>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 my-4">
-                @foreach(\App\Outcome::getSystems() as $systemKey => $systemName)
+            <div class="col-12 w-75 m-auto my-4">
+                <div class="w-100 justify-end d-flex">
+                    <button data-izimodal-open="#modal" data-izimodal-transitionin="fadeInDown" class="btn btn-primary" style="border-radius: 8px">
+                        {{__("Add funds")}}
+                    </button>
+                </div>
+                @foreach(\App\Outcome::currencyCrypto() as $systemKey => $systemName)
                 <form method="POST" action="{{route('cabinet.requisites.store')}}">
                     @csrf
                     <div class="wallet-item">
                         <div class="row">
-                            <div class="col-md-7 col-12">
-                                <div class="wallet-item__currency">
-                                    <p>{{__("Currency")}}:</p>
-                                    <div class="wallet-item__info-box wallet-item__info-box-currency">
+                            <div class="col-md-7 col-12  m-auto">
+                                <div class="wallet-item__currency d-flex gap-3">
+                                    <div class="d-flex  align-items-center">
                                         @if($systemName['short'] == 'RUB')
-                                        <img src="{{asset('assets/images/currency/'.$systemName['name'].'.svg')}}" onerror="this.src='{{asset('assets/images/currency/'.$systemName['name'].'.png')}}'" alt="{{$systemName['short']}}" class="wallet-item__info-box-ico">
+                                        <img  src="{{asset('assets/images/currency/'.$systemName['name'].'.svg')}}" onerror="this.src='{{asset('assets/images/currency/'.$systemName['name'].'.png')}}'" alt="{{$systemName['short']}}" class="wallet-item__info-box-ico wallet-img">
                                         @else
-                                        <img src="{{asset('assets/images/currency/'.$systemName['short'].'.svg')}}" onerror="this.src='{{asset('assets/images/currency/'.$systemName['short'].'.png')}}'" alt="{{$systemName['short']}}" class="wallet-item__info-box-ico">
+                                        <img src="{{asset('assets/images/currency/'.$systemName['short'].'.svg')}}" onerror="this.src='{{asset('assets/images/currency/'.$systemName['short'].'.png')}}'" alt="{{$systemName['short']}}" class="wallet-item__info-box-ico wallet-img">
                                         @endif
-                                        <span>{{ $systemName['name'] }}</span>
+
                                     </div>
-                                    <p>{{__("Wallet address")}}:</p>
-                                    {{-- <div class="wallet-item__info-box">--}}
-                                    <input type="text" name="{{ $systemKey }}_wallet" class="wallet-item__info-box w-100" id="input_pibze21v" value="{{ $requisites[$systemKey .'_wallet'] ?? null }}">
-                                    {{-- </div>--}}
+                                    <div class="w-100 d-flex align-items-center">
+                                    <span class="font-lg">{{ $systemName['name'] }}</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-5 col-12">
-                                <p>{{__("Balance")}}:</p>
-                                <p class="wallet-item__amount">{{$account->where('currency',$systemName['short'])->isEmpty() ? 0 : number_format($account->where('currency',$systemName['short'])->first()->balance / 100000, 2)}} {{$systemName['short']}}</p>
-                                <div class="wallet-item__btn-group d-flex">
-                                    <button class="wallet-item__btn">{{__("Save")}}</button>
-                                    @if($systemName['short'] != 'RUB')
-                                    <a href="{{route('cabinet.income',$systemName['short'])}}" class="wallet-item__btn wallet-item__btn__add">{{__("Add funds")}}</a>
-                                    @endif
-                                </div>
+                            <div class="col-md-5 col-12 text-right align-items-center d-flex justify-end">
+                                <p class="wallet-item__amount align-items-center font-xl">{{$account->where('currency',$systemName['short'])->isEmpty() ? 0 : number_format($account->where('currency',$systemName['short'])->first()->balance / 100000, 2)}} {{$systemName['short']}}</p>
+
                             </div>
                         </div>
                     </div>
@@ -322,6 +323,74 @@
     </div>
     </div>
     </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="d-flex w-100 mb-4 justify-between align-items-center">
+                <h2 class="font-xl">{{__("Adding funds for your")}}</h2>
+                <span class="close" data-izimodal-close="" data-izimodal-transitionout="fadeOutDown" id="closeModalBtn">&times;</span>
 
+            </div>
+        <div class="d-flex flex-column gap-3">
+            <div>
+                <label for="coins">{{__("Select cryptocurrency")}}:</label>
+                <select onload="getWalletInSelect(this)" onchange="getWalletInSelect(this)" class="form-control" id="coins" >
+                    @foreach(\App\Outcome::currencyCryptoDeposit() as $systemKey => $systemName)
+                        <option value="{{$systemName['short']}}">{{$systemName['name']}}</option>
+                    @endforeach
+
+                </select>
+
+            </div>
+            <div>
+                <div id="qrBlock" class="d-flex justify-content-center my-4">
+                    <img height="800px" id="qrImg" src="">
+
+                </div>
+                <input class="form-control" id="address_deposit" value="{{$wallets[0]['address']}}" disabled >
+            </div>
+
+        </div>
+        </div>
+    </div>
 </section>
+@if(count($wallets) === 0)
+    <script>
+        $.ajax({
+            url: "{{route('wallet.generate')}}",
+            type: "POST",
+            data: {
+                _token: "{{csrf_token()}}"
+            },
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        })
+
+    </script>
+@endif
+    <script id="__DATA__">
+{!! json_encode($wallets) !!}
+    </script>
+    <script>
+        function getWalletInSelect(select){
+            const coin = select.value;
+            const wallets = JSON.parse(document.getElementById('__DATA__').innerText);
+            const qr_img = document.getElementById('qrImg');
+            const address_deposit = document.getElementById('address_deposit');
+
+            wallets.forEach((wallet) => {
+                if(wallet.currency === coin){
+                    qr_img.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + wallet.address;
+                    address_deposit.value = wallet.address;
+                }
+            })
+        }
+
+            const select = document.getElementById('coins');
+            getWalletInSelect(select);
+
+    </script>
 @endsection

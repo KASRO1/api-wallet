@@ -20,7 +20,8 @@
         "larbrary/tawk": "^1.0",
         "livewire/livewire": "^2.4",
         "sonata-project/google-authenticator": "^2.3",
-        "stevebauman/purify": "^4.0"
+        "stevebauman/purify": "^4.0",
+        "westwallet/westwallet-php-api": "^1.8"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9.1",

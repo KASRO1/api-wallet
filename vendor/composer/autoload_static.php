@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc671f9c3783db64c1fe8a0b6c513bf8e
+class ComposerStaticInit11184fda03ae635740d77b45b5c759e3
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -46,6 +46,7 @@ class ComposerStaticInitc671f9c3783db64c1fe8a0b6c513bf8e
         'W' => 
         array (
             'Whoops\\' => 7,
+            'WestWallet\\WestWallet\\' => 22,
         ),
         'T' => 
         array (
@@ -183,6 +184,10 @@ class ComposerStaticInitc671f9c3783db64c1fe8a0b6c513bf8e
         'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
+        ),
+        'WestWallet\\WestWallet\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/westwallet/westwallet-php-api/src',
         ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
@@ -560,6 +565,8 @@ class ComposerStaticInitc671f9c3783db64c1fe8a0b6c513bf8e
         'App\\Http\\Controllers\\TrackingController' => __DIR__ . '/../..' . '/app/Http/Controllers/TrackingController.php',
         'App\\Http\\Controllers\\TransferController' => __DIR__ . '/../..' . '/app/Http/Controllers/TransferController.php',
         'App\\Http\\Controllers\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/VerificationController.php',
+        'App\\Http\\Controllers\\WestWallet' => __DIR__ . '/../..' . '/app/Http/Controllers/WestWallet.php',
+        'App\\Http\\Controllers\\p2pController' => __DIR__ . '/../..' . '/app/Http/Controllers/p2pController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Livewire\\Calculator' => __DIR__ . '/../..' . '/app/Http/Livewire/Calculator.php',
         'App\\Http\\Livewire\\ConversionForm' => __DIR__ . '/../..' . '/app/Http/Livewire/ConversionForm.php',
@@ -591,11 +598,14 @@ class ComposerStaticInitc671f9c3783db64c1fe8a0b6c513bf8e
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Rates' => __DIR__ . '/../..' . '/app/Rates.php',
         'App\\Requisite' => __DIR__ . '/../..' . '/app/Requisite.php',
         'App\\Support' => __DIR__ . '/../..' . '/app/Support.php',
         'App\\Support\\Helpers' => __DIR__ . '/../..' . '/app/Support/Helpers.php',
         'App\\TrackingItem' => __DIR__ . '/../..' . '/app/TrackingItem.php',
+        'App\\Transaction' => __DIR__ . '/../..' . '/app/Transaction.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\Wallet' => __DIR__ . '/../..' . '/app/Wallet.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -5588,6 +5598,7 @@ class ComposerStaticInitc671f9c3783db64c1fe8a0b6c513bf8e
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
+        'WestWallet\\WestWallet\\Client' => __DIR__ . '/..' . '/westwallet/westwallet-php-api/src/Client.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',
         'Whoops\\Exception\\Frame' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Frame.php',
@@ -5615,10 +5626,10 @@ class ComposerStaticInitc671f9c3783db64c1fe8a0b6c513bf8e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc671f9c3783db64c1fe8a0b6c513bf8e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc671f9c3783db64c1fe8a0b6c513bf8e::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitc671f9c3783db64c1fe8a0b6c513bf8e::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitc671f9c3783db64c1fe8a0b6c513bf8e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit11184fda03ae635740d77b45b5c759e3::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit11184fda03ae635740d77b45b5c759e3::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit11184fda03ae635740d77b45b5c759e3::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit11184fda03ae635740d77b45b5c759e3::$classMap;
 
         }, null, ClassLoader::class);
     }

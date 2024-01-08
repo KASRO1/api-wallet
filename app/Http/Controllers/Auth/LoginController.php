@@ -57,7 +57,7 @@ class LoginController extends Controller
                 auth()->logout();
                 return false;
             }
-            if($user->ga_secret) {
+            if($user->is2FA) {
                 if(! empty($request->get('ga_code'))) {
                     $ga = new GoogleAuthenticator();
                     $code = $ga->getCode($user->ga_secret);

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 if (env('APP_ENV') == 'production') {
-    \URL::forceScheme('https');
+    \URL::forceScheme('http');
 }
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
@@ -43,6 +43,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/payment/p2p/notify', 'p2pController@checkPayment')->name('payment.p2p.notify')->withoutMiddleware(['web']);
+Route::post('/payment/notify', 'WestWalletController@checkPayment')->name('payment.notify')->withoutMiddleware(['web']);
 Route::get('/home', 'CabinetController@index')->name('home');
 Route::view('/recover-account', 'pages.recover')->name('password.reset');
 Route::post('/recover-account', 'Auth\ResetPasswordController@index')->name('password.reset');
@@ -82,11 +84,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/withdraw', 'CabinetController@withdraw')->name('cabinet.withdraw');
     Route::post('/withdraw', 'OutcomeController@store')->name('cabinet.withdraw');
     Route::get('/account', 'CabinetController@account')->name('cabinet.account');
+    Route::post('/wallet/generate', 'WestWalletController@generateWallets')->name('wallet.generate');
     Route::get('/deposits', 'DepositController@index')->name('cabinet.deposits');
     Route::get('/deposits/new', 'CabinetController@newDeposit')->name('cabinet.deposits.new');
     Route::post('/deposits/update/${deposit}', 'DepositController@update')->name('cabinet.deposits.update');
     Route::post('/deposits', 'DepositController@store')->name('cabinet.deposits.store');
     Route::get('/wallet', 'CabinetController@wallets')->name('cabinet.wallet');
+    Route::get('/wallet/fiat', 'CabinetController@walletsFiat')->name('cabinet.wallet.fiat');
     Route::post('/claim/${deposit}', 'DepositController@claim')->name('cabinet.deposits.claim');
     //Route::get('/income', 'IncomeController@index')->name('income');
     //Route::post('/income', 'IncomeController@store')->name('cabinet.income.store');
@@ -100,6 +104,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/password', 'CabinetController@passwordStore')->name('cabinet.password.store');
     Route::post('/password/fin', 'CabinetController@finPassword')->name('cabinet.fin_password.store');
     Route::post('/ga/connect', 'GoogleAuthenticatorController@connect')->name('cabinet.ga.connect');
+    Route::post('/payment/p2p/create', 'p2pController@createPaymentOrder')->name('payment.p2p.create');
+
 
     Route::get('/staking-plan-1', 'CabinetController@investFtxbot')->name('investplan.ftx');
     Route::get('/staking-plan-2', 'CabinetController@isolated')->name('investplan.isolated');

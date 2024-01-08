@@ -17,17 +17,19 @@ class GoogleAuthenticatorController extends Controller
 
         $ga = new GoogleAuthenticator();
         $code = $ga->getCode($user->ga_secret);
-
         if($code != $request->get('code')) {
             return back()->with('ga_error', true);
         }
 
-        if($user->ga_secret) {
-            $user->update(['ga_secret' => null]);
+       if ($user->is2FA == false) {
+            $user->is2FA = true;
+            $user->save();
         } else {
-            $user->update(['ga_secret' => $secret]);
+            $user->is2FA = false;
+            $user->save();
         }
 
         return back();        
     }
+
 }

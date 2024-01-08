@@ -15,8 +15,8 @@ class CreatePaymentDetailsTable extends Migration
     {
         Schema::create('payment_details', function (Blueprint $table) {
             $table->id();
-            $table->string('currency');
-            $table->string('value');
+            $table->string('currency')->nullable();
+            $table->string('value')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

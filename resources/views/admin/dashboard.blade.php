@@ -54,6 +54,12 @@
                     </div>
                 </div>
             </form>
+
+        </div>
+        <div class="col-4 py-3">
+        <button class="form-control btn btn-primary">Сгенерировать кошельки</button>
+
+
         </div>
     </div>
     <div class="col-12">

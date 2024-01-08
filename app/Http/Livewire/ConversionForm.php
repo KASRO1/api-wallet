@@ -92,7 +92,7 @@ class ConversionForm extends Component
         // deduct commission except * => APY
         if ($this->currencyTwo !== Account::CURRENCY_APY) {
             $commissionAccount = $accounts->where('currency', Account::CURRENCY_APY)->first();
-            $commission = ((float) env('COMMISSION')) * 100000;
+            $commission = 0;
             if ($commissionAccount['balance'] < $commission) {
                 $this->error = "Токена APY недостаточно. Вам необходимо пополнить баланс APY.";
                 return;

@@ -11,6 +11,7 @@ use App\Outcome;
 use App\Promocode;
 use App\Support\Helpers;
 use App\User;
+use App\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -148,13 +149,55 @@ class CabinetController extends Controller
     {
         $user = auth()->user();
         $account = $user->accounts;
-        
+
         $rates = [];
         foreach ($this->getRates() as $item) {
             $rates[$item[0]] = $item[1];
         }
         $rates['USDT'] = 1;
-    
+
+        $total_balance = 0;
+        foreach ($account as $item) {
+            $currency = strtoupper($item->currency);
+            $balance = floatval($item->balance) * floatval(isset($rates[$currency]) ? $rates[$currency] : 0);
+            $total_balance += $balance;
+        }
+
+        $activeDeposits = $user->deposits()->where('status', Deposit::STATUS_OPENED)->get();
+        foreach ($activeDeposits as $deposit) {
+            $currency = strtoupper($deposit->currency);
+            $balance = floatval($deposit->balance) * floatval(isset($rates[$currency]) ? $rates[$currency] : 0);
+            $total_balance += $balance;
+        }
+
+        $requisites = $user->requisites()->get()->keyBy(function ($item) {
+            return $item->type . '_wallet';
+        })->map(function ($item) {
+            return $item->value;
+        });
+
+        $wallets = Wallet::where("user_id", $user->id)->get()->toArray();
+//        foreach ($wallets as $wallet) {
+//            if (!$requisites->has($wallet . '_wallet')) {
+//                $requisites->put($wallet . '_wallet', null);
+//            }
+//        }
+
+//        $wallets = config('requisites');
+
+        return view('cabinet.new.wallets', compact('user', 'account', 'requisites', 'wallets', 'total_balance'));
+    }
+    public function walletsFiat()
+    {
+        $user = auth()->user();
+        $account = $user->accounts;
+
+        $rates = [];
+        foreach ($this->getRates() as $item) {
+            $rates[$item[0]] = $item[1];
+        }
+        $rates['USDT'] = 1;
+
         $total_balance = 0;
         foreach ($account as $item) {
             $currency = strtoupper($item->currency);
@@ -184,7 +227,7 @@ class CabinetController extends Controller
 
         // $wallets = config('requisites');
 
-        return view('cabinet.new.wallets', compact('user', 'account', 'requisites', 'wallets', 'total_balance'));
+        return view('cabinet.new.wallets_fiat', compact('user', 'account', 'requisites', 'wallets', 'total_balance'));
     }
 
     public function storeWallets(Request $request)
@@ -273,7 +316,7 @@ class CabinetController extends Controller
         }
 
         $comment = config('requisitesComments.' . $deposit->currency);
-        
+
         return view('cabinet.new.deposits.show-wallet', compact('user', 'wallets', 'deposit', 'comment'));
     }
 
@@ -419,13 +462,7 @@ class CabinetController extends Controller
 
         $ga = new GoogleAuthenticator();
 
-        if (!session()->has('ga_secret')) {
-            $secret = $ga->generateSecret();
-            session()->put('ga_secret', $secret);
-        } else {
-            $secret = session()->get('ga_secret');
-        }
-
+        $secret = $user->ga_secret;
         $qr = GoogleQrUrl::generate($user->name, $secret);
 
         return view('cabinet.new.password', compact('user', 'accounts', 'qr'));
@@ -653,7 +690,7 @@ class CabinetController extends Controller
                 $referal = User::where('code', $data['invitation_code'])->first();
                 $user->update(['referal_id' => $referal->id]);
             }
-            
+
         }
 
         return back()->with('success', true);

@@ -297,7 +297,7 @@
                                 @endif
                                 <ul class="errors grid-column-12 grid-column-6--xl grid-column-start-4--xl margin-bottom-2">
                                     @if(session()->has('ga_error'))
-                                        <li>Одноразовый код введен неверно, попробуйте другой.</li>
+                                        <li class="text-danger">Одноразовый код введен неверно, попробуйте другой.</li>
                                     @endif
                                 </ul>
                                 <div data-v-2eb02792="" class="grid-column-12">

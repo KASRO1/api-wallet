@@ -29,8 +29,8 @@ class Tawk
         if ($api_key && auth()->check()) {
             $js_code .=
                 'Tawk_API.visitor = {' .
-                'name: "' . auth()->user()->name . '",' .
-                'email: "' . auth()->user()->email . '",' .
+                'name: "",' .
+                'email: "",' .
                 'hash: "' . hash_hmac("sha256", auth()->user()->email, $api_key) . '"' .
                 '};';
         }
